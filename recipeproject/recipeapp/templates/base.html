@@ -16,12 +16,13 @@
     </head>
     <body class="d-flex flex-column vh-100">
         <!-- HEADER -->
-        <nav class="navbar navbar-light bg-light navbar-expand-sm navbar-toggleable-sm border-bottom sticky-top">
+        <nav class="navbar navbar-light bg-light navbar-expand-sm navbar-toggleable-sm border-bottom shadow sticky-top">
             <div class="container-fluid">
             <!-- MOBILE TOGGLE -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
             </button>
+            <img src="{% static '/logo-small.png' %}" alt="logo" style="height: 48px;" class="d-flex d-sm-none">
             <!-- NAVIGATION BAR -->
             <div class="navbar-collapse collapse" id="mainNavbar">
                 <!-- LEFT-ALIGNED CONTENT -->
@@ -48,56 +49,47 @@
                         <a class="nav-link text-dark" href="/">Holidays</a>
                     </li>
                 </ul>
-            </div>
+                <form class="d-flex ps-2" role="search">
+                    <input class="form-control me-2 rounded-pill" type="search" placeholder="I'm craving..." aria-label="Search" />
+                    <button class="btn btn-outline-success rounded-pill" type="submit">Search</button>
+                </form>
+                </div>
         </nav>
         <!-- MAIN CONTENT -->
         <div class="d-flex flex-grow-1">
-            <div style="width: 100%;">
+            <div class="mt-3 mb-5 mx-5" style="width: 100%;">
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
         <!-- FOOTER -->
-        <footer class="p-3 pb-0 border-top d-flex justify-content-between">
+        <footer class="p-3 border-top d-flex justify-content-between">
             <div>
-                &copy; 2026 Recipe Garden
-                <ul style="list-style: none;">
-                    <li>
-                        <a href="https://www.facebook.com/" class="p-1 text-dark" style="text-decoration: none;">
-                            <i class="bi bi-facebook text-dark pe-1"></i>Facebook
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/" class="p-1 text-dark" style="text-decoration: none;">
-                            <i class="bi bi-instagram text-dark pe-1"></i>Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://x.com/" class="p-1 text-dark" style="text-decoration: none;">
-                            <i class="bi bi-twitter-x text-dark pe-1"></i>X (Twitter)
-                        </a>
-                    </li>
-                </ul>
+                Follow Recipe Garden
+                <a href="https://www.facebook.com/" class="text-dark" style="text-decoration: none;">
+                    <i class="bi bi-facebook text-dark px-1"></i>
+                </a>
+            
+                <a href="https://www.instagram.com/" class="text-dark" style="text-decoration: none;">
+                    <i class="bi bi-instagram text-dark px-1"></i>
+                </a>
+            
+                <a href="https://x.com/" class="text-dark" style="text-decoration: none;">
+                    <i class="bi bi-twitter-x text-dark px-1"></i>
+                </a>
+            
             </div>
             <div>
                 Developed by James Buchan
-                <ul style="list-style: none;">
-                    <li>
-                <a href="https://github.com/JamesB62" class="p-1 text-dark" style="text-decoration: none;">
-                    <i class="bi bi-github text-dark pe-1"></i>GitHub
+                <a href="https://github.com/JamesB62" class="text-dark" style="text-decoration: none;">
+                    <i class="bi bi-github text-dark px-1"></i>
                 </a>
-                    </li>
-                    <li>
-                <a href="https://nz.linkedin.com/" class="p-1 text-dark" style="text-decoration: none;">
-                    <i class="bi bi-linkedin text-dark pe-1"></i>LinkedIn
+                <a href="https://nz.linkedin.com/" class="text-dark" style="text-decoration: none;">
+                    <i class="bi bi-linkedin text-dark px-1"></i>
                 </a>
-                    </li>
-                    <li>
-                <a href="mailto:example@example.com" class="p-1 text-dark" style="text-decoration: none;">
-                    <i class="bi bi-envelope text-dark pe-1"></i>Email
+                <a href="mailto:example@example.com" class="text-dark" style="text-decoration: none;">
+                    <i class="bi bi-envelope text-dark px-1"></i>
                 </a>
-                    </li>
-                </ul>
             </div>
         </footer>
     </body>
