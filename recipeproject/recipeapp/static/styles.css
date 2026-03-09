@@ -1,0 +1,13 @@
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'Sans-Serif';
+}
+
+.fancy-title,.fancy-title:hover {
+    font-family: 'Birthstone';
+    color: rgb(56, 182, 74);
+    text-decoration: none;
+}

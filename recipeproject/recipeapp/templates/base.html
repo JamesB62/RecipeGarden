@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recipe Garden - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body class="d-flex flex-column vh-100">
+        <!-- HEADER -->
+        <nav class="navbar navbar-light bg-light navbar-expand-sm navbar-toggleable-sm border-bottom sticky-top">
+            <div class="container-fluid">
+            <!-- MOBILE TOGGLE -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+            <!-- NAVIGATION BAR -->
+            <div class="navbar-collapse collapse" id="mainNavbar">
+                <!-- LEFT-ALIGNED CONTENT -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item d-flex align-items-center">
+                        <img src="{% static '/logo-small.png' %}" alt="logo" style="height: 48px;" class="d-none d-sm-flex">
+                        <a class="fs-2 p-0 fancy-title" href="/">Recipe Garden</a>
+                    </li>
+                </ul>
+                <!-- RIGHT-ALIGNED LINKS -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="/" id="recipesDropdown" role="button">Daily Recipe</a>
+                        <ul class="dropdown-menu dropdown-menu-end text-center">
+                            <li><a class="dropdown-item" href="/breakfast">Breakfast</a></li>
+                            <li><a class="dropdown-item" href="/lunch">Lunch</a></li>
+                            <li><a class="dropdown-item" href="/dinner">Dinner</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/">Health & Diet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/">Holidays</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- MAIN CONTENT -->
+        <div class="d-flex flex-grow-1">
+            <div style="width: 100%;">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <!-- FOOTER -->
+        <footer class="p-3 pb-0 border-top d-flex justify-content-between">
+            <div>
+                &copy; 2026 Recipe Garden
+                <ul style="list-style: none;">
+                    <li>
+                        <a href="https://www.facebook.com/" class="p-1 text-dark" style="text-decoration: none;">
+                            <i class="bi bi-facebook text-dark pe-1"></i>Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" class="p-1 text-dark" style="text-decoration: none;">
+                            <i class="bi bi-instagram text-dark pe-1"></i>Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/" class="p-1 text-dark" style="text-decoration: none;">
+                            <i class="bi bi-twitter-x text-dark pe-1"></i>X (Twitter)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                Developed by James Buchan
+                <ul style="list-style: none;">
+                    <li>
+                <a href="https://github.com/JamesB62" class="p-1 text-dark" style="text-decoration: none;">
+                    <i class="bi bi-github text-dark pe-1"></i>GitHub
+                </a>
+                    </li>
+                    <li>
+                <a href="https://nz.linkedin.com/" class="p-1 text-dark" style="text-decoration: none;">
+                    <i class="bi bi-linkedin text-dark pe-1"></i>LinkedIn
+                </a>
+                    </li>
+                    <li>
+                <a href="mailto:example@example.com" class="p-1 text-dark" style="text-decoration: none;">
+                    <i class="bi bi-envelope text-dark pe-1"></i>Email
+                </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
