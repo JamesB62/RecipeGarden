@@ -11,3 +11,9 @@ body {
     color: rgb(56, 182, 74);
     text-decoration: none;
 }
+
+hr {
+    height: 1px;
+    border: none;
+    background: linear-gradient(to right, rgb(40, 40, 43), rgba(40, 40, 43, 0));
+}

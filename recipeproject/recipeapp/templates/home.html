@@ -3,14 +3,82 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<h1>Home Page</h1>
+
+<!-- CHEF'S SPECIAL VIDEO BLOCK -->
+<div class="d-flex flex-column align-items-center">
+    <h2 class="mb-3">Chef's Special Video</h2>
+    <p class="text-center" style="width: 100%; max-width: 48rem;">
+        Watch our Chef's Special Video, where expert culinary techniques and creative cooking come together to bring
+        delicious dishes to life.
+        This showcase highlights the skill, passion, and artistry behind every recipe.
+    </p>
+    <video class="rounded shadow mb-3" width="960" height="540" autoplay loop muted>
+        <source src="{% static '/cooking-b-roll.mp4' %}" type="video/mp4">
+    </video>
+</div>
+<hr>
+
+<div class="d-flex flex-column align-items-center">
+    <h2 class="mb-3">Community Activity</h2>
+    <p class="text-center">Check out what the Recipe Garden community is saying about our delicious recipes.</p>
 
 
-<!-- <iframe class="rounded" width="1280" height="720" src="https://www.youtube.com/embed/L1UrQQTJF34?si=UUU6BtSflBHhj6vx"
-    title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-</iframe> -->
+    <div class="d-flex justify-content-center gap-4">
+
+        <div class="card shadow" style="width: 24rem;">
+            <img src="{% static '/creamy-chicken-pasta.jpg' %}" class="card-img-top rounded" alt="creamy-chicken-pasta"
+                style="max-height: 24rem; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h5 class="card-title pt-2">Creamy Chicken Pasta</h5>
+                    <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                </div>
+                <hr>
+                <p class="card-text fst-italic mx-3 mb-3">
+                    "Tried this recipe tonight and it turned out amazing!
+                    I added a little extra garlic and it gave the dish even more flavor.
+                    Definitely making this again."
+                </p>
+                <small class="text-muted d-block mx-2 mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
+            </div>
+        </div>
+
+        <div class="card shadow" style="width: 24rem;">
+            <img src="{% static '/blueberry-muffins.jpg' %}" class="card-img-top rounded" alt="creamy-chicken-pasta"
+                style="max-height: 24rem; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h5 class="card-title pt-2">Blueberry Muffins</h5>
+                    <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                </div>
+                <hr>
+                <p class="card-text fst-italic mx-3 mb-3">
+                    "Super easy to follow and the result was delicious.
+                    I substituted almond milk instead of regular milk and it still worked perfectly."
+                </p>
+                <small class="text-muted d-block mx-2 mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
+            </div>
+        </div>
+
+        <div class="card shadow" style="width: 24rem;">
+            <img src="{% static '/shakshuka.jpg' %}" class="card-img-top rounded" alt="creamy-chicken-pasta"
+                style="max-height: 24rem; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h5 class="card-title pt-2">Shakshuka</h5>
+                    <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                </div>
+                <hr>
+                <p class="card-text fst-italic mx-3 mb-3">
+                    "Great recipe! The cooking time was spot on and my family loved it.
+                    Next time I might add some chili flakes for a bit of heat."
+                </p>
+                <small class="text-muted d-block mx-2 mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 
 {% endblock %}
