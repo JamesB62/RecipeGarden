@@ -52,7 +52,6 @@
                         </li>
                     </ul>
 
-                    <!-- Center Search Bar? -->
                     <!-- Search Bar -->
                     <form class="d-flex search-form px-3" role="search">
                         <input class="form-control me-2 rounded-pill" type="search" placeholder="I'm craving..." aria-label="Search"/>
@@ -61,10 +60,10 @@
                         </button>
                     </form>
 
-                    <!-- UPDATE STYLING -->
+                    <!-- Centre Welcome Message? -->
                     {% if user.is_authenticated %}
-                    <div class="d-xxl-flex d-none border">
-                        <p class="text-muted fst-italic">Welcome {{ user.username }}!</p>
+                    <div class="d-xxl-flex d-none align-items-center">
+                        <span class="text-muted fst-italic m-0">Welcome {{ user.username }}</span>
                     </div>
                     {% else %}
                     {% endif %}
@@ -89,10 +88,10 @@
                         </li>
                         <li class="nav-item">
 
-                            <!-- UPDATE STYLING -->
+                            <!-- Login/Logout Buttons -->
+                            <!-- FIX PADDING WHEN COLLAPSED -->
                             {% if user.is_authenticated %}
                             <li class="nav-item d-flex align-items-center ps-2">
-                                <!-- <p>Welcome {{ user.username }}</p> -->
                                 <form action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-outline-success rounded-pill" >
