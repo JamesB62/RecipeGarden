@@ -4,38 +4,58 @@
 <html>
     <head>
         <title>Recipe Garden - {% block title %}{% endblock %}</title>
+        <!-- Style Sheet -->
         <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+        <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
         {% load bootstrap5 %}
         {% bootstrap_css %}
         {% bootstrap_javascript %}
     </head>
-    <body class="d-flex flex-column vh-100">
-        <!-- HEADER -->
-        <nav class="navbar navbar-light bg-light navbar-expand-sm navbar-toggleable-sm border-bottom shadow sticky-top">
-            <div class="container-fluid">
-            <!-- MOBILE TOGGLE -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list"></i>
-            </button>
-            <img src="{% static '/logo-small.png' %}" alt="logo" style="height: 48px;" class="d-flex d-sm-none">
+    <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-light bg-light navbar-expand-sm border-bottom shadow sticky-top">
+        <div class="container-fluid">
+            <!-- Mobile Toggle -->
+            <div class="d-flex gap-2">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="d-flex d-sm-none align-items-center">
+                    <img src="{% static 'logo-small.png' %}" alt="logo" style="height: 48px;">
+                    <a id="fancy-title" class="fs-2 p-0" href="/">
+                        Recipe Garden
+                    </a>
+                </div>
+            </div>
+            
             <!-- NAVIGATION BAR -->
             <div class="navbar-collapse collapse" id="mainNavbar">
                 <!-- LEFT-ALIGNED CONTENT -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item d-flex align-items-center">
                         <img src="{% static '/logo-small.png' %}" alt="logo" style="height: 48px;" class="d-none d-sm-flex">
-                        <a class="fs-2 p-0 fancy-title" href="/">Recipe Garden</a>
+                        <a id="fancy-title" class="fs-2 p-0 d-none d-sm-flex" href="/">Recipe Garden</a>
                     </li>
                 </ul>
+                <!-- Search Bar -->
+                <form class="d-flex ps-2" role="search">
+                    <input class="form-control me-2 rounded-pill" type="search" placeholder="I'm craving..."
+                        aria-label="Search" />
+                    <button class="btn btn-outline-success rounded-pill" type="submit">Search</button>
+                </form>
                 <!-- RIGHT-ALIGNED LINKS -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-dark dropdown-toggle" href="/" id="recipesDropdown" role="button">Daily Recipe</a>
+                        <a class="nav-link text-dark dropdown-toggle" href="/" id="recipesDropdown" role="button">Daily
+                            Recipe</a>
                         <ul class="dropdown-menu dropdown-menu-end text-center">
                             <li><a class="dropdown-item" href="/breakfast">Breakfast</a></li>
                             <li><a class="dropdown-item" href="/lunch">Lunch</a></li>
@@ -48,47 +68,67 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/">Holidays</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/">Login</a>
+                    </li>
                 </ul>
-                <form class="d-flex ps-2" role="search">
-                    <input class="form-control me-2 rounded-pill" type="search" placeholder="I'm craving..." aria-label="Search" />
-                    <button class="btn btn-outline-success rounded-pill" type="submit">Search</button>
-                </form>
-                </div>
-        </nav>
-        <!-- MAIN CONTENT -->
-        <div class="d-flex flex-grow-1">
-            <div class="mt-3 mb-5" style="width: 100%;">
-                {% block content %}
-                {% endblock %}
+
             </div>
         </div>
-        <!-- FOOTER -->
-        <footer class="p-3 border-top d-flex justify-content-between">
-            <div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+        <!-- Page Content -->
+        <div class="mt-3 mb-5">
+            {% block content %}
+            {% endblock %}
+        </div>
+    
+        <!-- Footer -->
+        <footer class="d-flex flex-column flex-sm-row justify-content-between align-items-center border-top p-3 gap-2">
+            <!-- Left Aligned Elements -->
+            <div class="text-center text-sm-start">
                 Follow Recipe Garden
-                <a href="https://www.facebook.com/" class="text-dark" style="text-decoration: none;">
-                    <i class="bi bi-facebook text-dark px-1"></i>
+                <a href="https://www.facebook.com/" class="text-dark text-decoration-none">
+                    <i class="bi bi-facebook text-dark ps-1"></i>
                 </a>
-            
-                <a href="https://www.instagram.com/" class="text-dark" style="text-decoration: none;">
-                    <i class="bi bi-instagram text-dark px-1"></i>
+                <a href="https://www.instagram.com/" class="text-dark text-decoration-none">
+                    <i class="bi bi-instagram text-dark ps-1"></i>
                 </a>
-            
-                <a href="https://x.com/" class="text-dark" style="text-decoration: none;">
-                    <i class="bi bi-twitter-x text-dark px-1"></i>
+                <a href="https://x.com/" class="text-dark text-decoration-none">
+                    <i class="bi bi-twitter-x text-dark ps-1"></i>
                 </a>
-            
             </div>
-            <div>
+            <!-- Right Aligned Elements -->
+            <div class="text-center text-sm-end">
                 Developed by James Buchan
-                <a href="https://github.com/JamesB62" class="text-dark" style="text-decoration: none;">
-                    <i class="bi bi-github text-dark px-1"></i>
+                <a href="https://github.com/JamesB62" class="text-dark text-decoration-none">
+                    <i class="bi bi-github text-dark ps-1"></i>
                 </a>
-                <a href="https://nz.linkedin.com/" class="text-dark" style="text-decoration: none;">
-                    <i class="bi bi-linkedin text-dark px-1"></i>
+                <a href="https://nz.linkedin.com/" class="text-dark text-decoration-none">
+                    <i class="bi bi-linkedin text-dark ps-1"></i>
                 </a>
-                <a href="mailto:example@example.com" class="text-dark" style="text-decoration: none;">
-                    <i class="bi bi-envelope text-dark px-1"></i>
+                <a href="mailto:example@example.com" class="text-dark text-decoration-none">
+                    <i class="bi bi-envelope text-dark ps-1"></i>
                 </a>
             </div>
         </footer>

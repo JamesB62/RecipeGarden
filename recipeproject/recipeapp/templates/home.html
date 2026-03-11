@@ -3,44 +3,43 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<!-- ADD SIDE MARGINS TO ALL CONTENT TO MAKE LOOK LIKE FOOD WEBSITE EXAMPLE -->
-
-<!-- CHEF'S SPECIAL VIDEO BLOCK -->
-<div class="d-flex flex-column align-items-center">
-    <h2 class="mb-3">Chef's Special Video</h2>
-    <p class="text-center" style="width: 100%; max-width: 48rem;">
-        Watch our Chef's Special Video, where expert culinary techniques and creative cooking come together to bring
-        delicious dishes to life.
-        This showcase highlights the skill, passion, and artistry behind every recipe.
-    </p>
-    <video class="rounded shadow mb-3" width="960" height="540" autoplay loop muted>
-        <source src="{% static '/cooking-b-roll.mp4' %}" type="video/mp4">
-    </video>
+<!-- Chef's Special Video Block -->
+<div class="d-flex flex-column align-items-center px-4 mb-4">
+    <div style="width: 100%; max-width: 960px;" class="text-start">
+        <h2 id="fancy-subtitle">Chef's Special Video</h2>
+        <p style="width: 100%; max-width: 960px;">
+            Watch our Chef's Special Video, where expert culinary techniques and creative cooking come together to bring
+            delicious dishes to life.
+            This showcase highlights the skill, passion, and artistry behind every recipe.
+        </p>
+    </div>
+    <div class="ratio ratio-16x9" style="max-width: 960px;">
+        <video class="rounded shadow" autoplay loop muted>
+            <source src="{% static 'cooking-b-roll.mp4' %}" type="video/mp4">
+        </video>
+    </div>
 </div>
-<hr>
 
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#8EC63F" fill-opacity="1"
-            d="M0,192L40,202.7C80,213,160,235,240,229.3C320,224,400,192,480,197.3C560,203,640,245,720,234.7C800,224,880,160,960,144C1040,128,1120,160,1200,165.3C1280,171,1360,149,1400,138.7L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
-        </path>
-    </svg> -->
+<hr id="gradientDivider">
 
-<!-- COMMUNITY ACTIVITY BLOCK -->
-<div class="d-flex flex-column align-items-center">
-    <h2 class="mb-3">Community Activity</h2>
-    <p class="text-center">Check out what the Recipe Garden community is saying about our delicious recipes.</p>
-
-    <div class="d-flex justify-content-center gap-4">
-
-        <div class="card shadow" style="width: 24rem;">
-            <img src="{% static '/creamy-chicken-pasta.jpg' %}" class="card-img-top rounded" alt="creamy-chicken-pasta"
-                style="max-height: 24rem; object-fit: cover;">
+<!-- Community Activity Block -->
+<div class="d-flex flex-column align-items-center px-4">
+    <div style="width: 100%; max-width: 1360px;" class="text-start">
+        <h2 id="fancy-subtitle">Community Activity</h2>
+        <p>Check out what the Recipe Garden community is saying about our delicious recipes.</p>
+    </div>
+    <!-- Comment Cards -->
+    <div class="d-flex flex-wrap justify-content-center gap-4 px-4">
+        <!-- Card 1 -->
+        <div class="card shadow" style="width: 437px;">
+            <img src="{% static 'creamy-chicken-pasta.jpg' %}" class="card-img-top" alt="creamy-chicken-pasta"
+                style="max-height: 437px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title pt-2">Creamy Chicken Pasta</h5>
+                    <h5 id="fancy-subtitle" class="card-title pt-2">Creamy Chicken Pasta</h5>
                     <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
                 </div>
-                <hr>
+                <hr id="gradientDivider">
                 <p class="card-text fst-italic mx-3 mb-3">
                     "Tried this recipe tonight and it turned out amazing!
                     I added a little extra garlic and it gave the dish even more flavor.
@@ -49,16 +48,16 @@
                 <small class="text-muted d-block mx-2 mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
             </div>
         </div>
-
-        <div class="card shadow" style="width: 24rem;">
-            <img src="{% static '/blueberry-muffins.jpg' %}" class="card-img-top rounded" alt="creamy-chicken-pasta"
-                style="max-height: 24rem; object-fit: cover;">
+        <!-- Card 2 -->
+        <div class="card shadow" style="width: 437px;">
+            <img src="{% static 'blueberry-muffins.jpg' %}" class="card-img-top" alt="blueberry-muffins"
+                style="max-height: 437px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title pt-2">Blueberry Muffins</h5>
+                    <h5 id="fancy-subtitle" class="card-title pt-2">Blueberry Muffins</h5>
                     <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
                 </div>
-                <hr>
+                <hr id="gradientDivider">
                 <p class="card-text fst-italic mx-3 mb-3">
                     "Super easy to follow and the result was delicious.
                     I substituted almond milk instead of regular milk and it still worked perfectly."
@@ -66,16 +65,16 @@
                 <small class="text-muted d-block mx-2 mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
             </div>
         </div>
-
-        <div class="card shadow" style="width: 24rem;">
-            <img src="{% static '/shakshuka.jpg' %}" class="card-img-top rounded" alt="creamy-chicken-pasta"
-                style="max-height: 24rem; object-fit: cover;">
+        <!-- Card 3 -->
+        <div class="card shadow" style="width: 437px;">
+            <img src="{% static 'shakshuka.jpg' %}" class="card-img-top" alt="shakshuka"
+                style="max-height: 437px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title pt-2">Shakshuka</h5>
+                    <h5 id="fancy-subtitle" class="card-title pt-2">Shakshuka</h5>
                     <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
                 </div>
-                <hr>
+                <hr id="gradientDivider">
                 <p class="card-text fst-italic mx-3 mb-3">
                     "Great recipe! The cooking time was spot on and my family loved it.
                     Next time I might add some chili flakes for a bit of heat."
@@ -83,9 +82,7 @@
                 <small class="text-muted d-block mx-2 mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
             </div>
         </div>
-
     </div>
-
 </div>
 
 {% endblock %}

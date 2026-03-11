@@ -1,19 +1,54 @@
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
+#gradientDivider {
+    height: 1px;
+    border: none;
+    background: radial-gradient(circle, rgb(40, 40, 43) 0%, rgba(40, 40, 43, 0) 98%);
 }
 
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'Sans-Serif';
-}
-
-.fancy-title,.fancy-title:hover {
-    font-family: 'Birthstone';
+#fancy-title {
+    font-family: "Google Sans";
+    font-size: 2rem;
     color: rgb(56, 182, 74);
     text-decoration: none;
 }
 
-hr {
-    height: 1px;
-    border: none;
-    background: linear-gradient(to right, rgb(40, 40, 43), rgba(40, 40, 43, 0));
+#fancy-title:hover {
+    color: rgb(25, 135, 84)
+}
+
+#fancy-subtitle {
+    font-family: "Google Sans";
+}
+
+nav a.nav-link:hover {
+    color: rgb(25, 135, 84) !important;
+}
+
+
+/* TBC */
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+
+
+@media (max-width: 575px) {
+    .navbar-collapse {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* .navbar-nav .dropdown-menu {
+        position: absolute;
+        width: auto;
+        min-width: 180px;
+    }
+
+    .navbar-nav .dropdown {
+        position: relative;
+    } */
 }
