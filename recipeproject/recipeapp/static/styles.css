@@ -1,54 +1,47 @@
-#gradientDivider {
+.gradient-divider {
     height: 1px;
     border: none;
     background: radial-gradient(circle, rgb(40, 40, 43) 0%, rgba(40, 40, 43, 0) 98%);
 }
 
-#fancy-title {
+.fancy-title {
     font-family: "Google Sans";
     font-size: 2rem;
     color: rgb(56, 182, 74);
     text-decoration: none;
 }
 
-#fancy-title:hover {
+.fancy-title:hover {
     color: rgb(25, 135, 84)
 }
 
-#fancy-subtitle {
+.fancy-subtitle {
     font-family: "Google Sans";
+}
+
+.search-form {
+    max-width: 429px;
+    width: 100%;
 }
 
 nav a.nav-link:hover {
     color: rgb(25, 135, 84) !important;
 }
 
-
-/* TBC */
-
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
+    max-width: 160px;
+    width: 100%;
 }
 
-
-
-
-
-
-
-@media (max-width: 575px) {
+@media (max-width: 1199px) {
     .navbar-collapse {
+        padding-top: 16px;
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    /* .navbar-nav .dropdown-menu {
-        position: absolute;
-        width: auto;
-        min-width: 180px;
+    .navbar-collapse form {
+        padding-bottom: 8px;
     }
-
-    .navbar-nav .dropdown {
-        position: relative;
-    } */
 }
