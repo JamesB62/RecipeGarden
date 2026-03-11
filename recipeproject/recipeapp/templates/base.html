@@ -61,6 +61,14 @@
                         </button>
                     </form>
 
+                    <!-- UPDATE STYLING -->
+                    {% if user.is_authenticated %}
+                    <div class="d-xxl-flex d-none border">
+                        <p class="text-muted fst-italic">Welcome {{ user.username }}!</p>
+                    </div>
+                    {% else %}
+                    {% endif %}
+
                     <!-- Right Aligned Links -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
@@ -80,7 +88,24 @@
                             <a class="nav-link text-dark" href="/">Holidays</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Login</a>
+
+                            <!-- UPDATE STYLING -->
+                            {% if user.is_authenticated %}
+                            <li class="nav-item d-flex align-items-center ps-2">
+                                <!-- <p>Welcome {{ user.username }}</p> -->
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-success rounded-pill" >
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                            
+                            {% else %}
+                            <li class="nav-item ps-2">
+                                <a class="btn btn-outline-success rounded-pill" href="{% url 'login' %}">Login</a>
+                            </li>
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
