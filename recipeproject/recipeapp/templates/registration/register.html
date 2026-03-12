@@ -4,30 +4,26 @@
 {% block content %}
 
 <div class="d-flex flex-column align-items-center px-4">
+
+    <!-- Register Card -->
     <div class="card shadow p-4" style="width: 100%; max-width: 480px;">
         <h2 class="fancy-subtitle mb-0">Register</h2>
         <hr class="gradient-divider">
 
-        <form class="d-flex flex-column gap-3 py-2" method="post">
+        <!-- Register Form -->
+        <form class="d-flex flex-column gap-3 mt-3" method="post">
+
+            <!-- Input Fields -->
             {% csrf_token %}
-            <!-- {{ form.as_p }} -->
+            {{ form.username }}
+            {{ form.email }}
+            {{ form.password1 }}
+            {{ form.password2 }}
 
-
-                <!-- <label class="form-label pe-2">Username</label> -->
-                {{ form.username }}
-
-                <!-- <label class="form-label pe-2">Password</label> -->
-                {{ form.password1 }}
-
-                <!-- <label class="form-label pe-2">Confirm Password</label> -->
-                {{ form.password2 }}
-
-
-            <button class="btn btn-outline-success rounded-pill" type="submit">Register</button>
-
-            <small class="text-muted">Already have an account? <a class="text-decoration-none" href="{% url 'login' %}">Login here</a></small>
-
-            
+            <!-- Submit Button & Additional Links -->
+            <button class="btn btn-outline-success rounded-pill mt-3" type="submit">Register</button>
+            <small class="text-muted">Already have an account? <a class="text-decoration-none"
+                    href="{% url 'login' %}">Login here</a></small>
         </form>
     </div>
 </div>

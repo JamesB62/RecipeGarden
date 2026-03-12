@@ -3,42 +3,37 @@
 {% block title %}Login{% endblock %}
 {% block content %}
 
-<!-- <div class="mx-3">
-    <h2 class="fancy-subtitle">Login</h2>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-outline-success rounded-pill" type="submit">Login</button>
-    </form>
-
-    <p>Register New Account</p>
-    <a class="btn btn-outline-success rounded-pill" href="{% url 'register' %}">Register</a>
-</div> -->
-
 <div class="d-flex flex-column align-items-center px-4">
+
+    <!-- Login Card -->
     <div class="card shadow p-4" style="width: 100%; max-width: 480px;">
         <h2 class="fancy-subtitle mb-0">Login</h2>
         <hr class="gradient-divider">
 
-        <form class="d-flex flex-column gap-3 py-2" method="post">
+        <!-- Login Form -->
+        <form class="d-flex flex-column gap-3 mt-3" method="post">
             {% csrf_token %}
 
-            {{ form.as_p }}
+            <!-- Input Fields -->
+            <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required>
 
-                <!-- {{ form.username }}
-
-                {{ form.password1 }}
-
-                {{ form.password2 }} -->
-
-            <button class="btn btn-outline-success rounded-pill" type="submit">Login</button>
-
-            <small class="text-muted">Don't have an account? <a class="text-decoration-none" href="{% url 'register' %}">Register here</a></small>
-
-            <small class="text-muted">Forgot your password? <a class="text-decoration-none" href="{% url 'register' %}">Reset your password here</a></small>
-
+            <!-- Doesn't Work -->
+            <!-- Error Message -->
+            {% if error %}
+                <div class="text-danger">{{ error }}</div> 
+            {% endif %}
             
+            <!-- Submit Button & Additional Links -->
+            <button class="btn btn-outline-success rounded-pill mt-3" type="submit">Login</button>
+            <div class="d-flex flex-column gap-2">
+                <small class="text-muted">Don't have an account? <a class="text-decoration-none"
+                        href="{% url 'register' %}">Register here</a></small>
+        
+                <!-- Missing Link Destination -->
+                <small class="text-muted">Forgot your password? <a class="text-decoration-none" href="/">Reset password
+                        here</a></small>
+            </div>
         </form>
     </div>
 </div>
