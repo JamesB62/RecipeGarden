@@ -3,7 +3,7 @@
 {% block title %}Breakfast{% endblock %}
 {% block content %}
 
-<!-- Community Activity Block -->
+<!-- Daily Breakfast Recipes Block -->
 <div class="d-flex flex-column align-items-center px-4">
     <div style="width: 100%; max-width: 900px;" class="text-start">
         <h2 class="fancy-subtitle">Daily Breakfast Recipes</h2>
@@ -19,73 +19,61 @@
 
         <!-- Card 1 -->
         <div class="card shadow d-flex flex-row" style="max-width: 900px; width: 100%;">
-
-            <!-- Keep Image Responsiveness? -->
             <img src="{% static 'air-fryer-scones.jpg' %}" class="d-none d-md-flex rounded-start" alt="air-fryer-scones"
                 style="max-width: 240px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-top justify-content-between p-1">
                     <h5 class="card-title fancy-subtitle">Air Fryer Scones</h5>
-                    <a href="{% url 'air-fryer-scones' %}" class="btn btn-outline-success rounded-pill">View Recipe</a>
+                    <a href="{% url 'air-fryer-scones' %}" class="btn btn-outline-success rounded-pill ms-3" style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                 </div>
-                <small class="text-muted">Time: 40min, Serves: 12</small>
+                <small class="text-muted ps-1">Time: 40min, Serves: 12</small>
                 <hr class="gradient-divider">
                 <p class="card-text mx-3 mb-3 overflow-ellipsis">
                     Made with minimal ingredients and minimal fuss, this easy recipe for Air Fryer Scones is perfect for morning or
                     afternoon tea.
                     Best served with cream and jam, of course.
                 </p>
-                <small class="text-muted">Uploaded by: <i class="bi bi-person-circle px-1"></i>James123 | 10 March 2026</small>
+                <small class="text-muted ps-1">Uploaded by: <i class="bi bi-person-circle px-1"></i>James123 | 10 March 2026</small>
             </div>
         </div>
 
         <!-- Card 2 -->
         <div class="card shadow d-flex flex-row" style="max-width: 900px; width: 100%;">
-
-            <!-- Keep Image Responsiveness? -->
             <img src="{% static 'creamy-porridge-with-blueberries.jpg' %}" class="d-none d-md-flex rounded-start" alt="creamy-porridge-with-blueberries"
                 style="max-width: 240px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-top justify-content-between p-1">
                     <h5 class="card-title fancy-subtitle">Creamy Porridge with Blueberries</h5>
-                    <!-- Update href -->
-                    <a href="/" class="btn btn-outline-success rounded-pill">View Recipe</a>
+                    <a href="{% url 'creamy-porridge' %}" class="btn btn-outline-success rounded-pill ms-3" style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                 </div>
-                <small class="text-muted">Time: 15min, Serves: 4</small>
+                <small class="text-muted ps-1">Time: 15min, Serves: 4</small>
                 <hr class="gradient-divider">
                 <p class="card-text mx-3 mb-3 overflow-ellipsis">
                     Start your day with Creamy Porridge with Blueberries. 
                     Full of oats, blueberries and full cream milk, this quick and easy porridge recipe is tasty and nutritious. 
                     Serve topped with yoghurt, blueberries and mint.
                 </p>
-                <small class="text-muted">Uploaded by: <i class="bi bi-person-circle px-1"></i>James123 | 10 March 2026</small>
+                <small class="text-muted ps-1">Uploaded by: <i class="bi bi-person-circle px-1"></i>James123 | 10 March 2026</small>
             </div>
         </div>
 
         <!-- Card 3 -->
         <div class="card shadow d-flex flex-row" style="max-width: 900px; width: 100%;">
-
-            <!-- Keep Image Responsiveness? -->
             <img src="{% static 'yoghurt-pancakes-with-cinnamon-apples.jpg' %}" class="d-none d-md-flex rounded-start" alt="yoghurt-pancakes-with-cinnamon-apples"
                 style="max-width: 240px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-top justify-content-between p-1">
                     <h5 class="card-title fancy-subtitle">Yoghurt Pancakes with Cinnamon Apples</h5>
-                    <!-- Update href -->
-                    <a href="/" class="btn btn-outline-success rounded-pill">View Recipe</a>
+                    <a href="{% url 'yoghurt-pancakes' %}" class="btn btn-outline-success rounded-pill ms-3" style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                 </div>
-                <small class="text-muted">Time: 15min, Serves: 4</small>
+                <small class="text-muted ps-1">Time: 15min, Serves: 4</small>
                 <hr class="gradient-divider">
                 <p class="card-text mx-3 mb-3 overflow-ellipsis">
                     Make breakfast or brunch a meal to remember when you serve up a stack of tasty pancakes with this recipe for Yoghurt Pancakes with Cinnamon Apples!
                 </p>
-                <small class="text-muted">Uploaded by: <i class="bi bi-person-circle px-1"></i>James123 | 10 March 2026</small>
+                <small class="text-muted ps-1">Uploaded by: <i class="bi bi-person-circle px-1"></i>James123 | 10 March 2026</small>
             </div>
         </div>
-
-
-
-
     </div>
 </div>
 
