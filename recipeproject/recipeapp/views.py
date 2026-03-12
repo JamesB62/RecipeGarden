@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
-# from django.contrib import messages
 
-# Create your views here.
-
+# Core Pages
 def home(request):
     return render(request, "home.html")
 
@@ -17,6 +15,17 @@ def lunch(request):
 def dinner(request):
     return render(request, "dinner.html")
 
+# Recipe Pages
+def airFryerScones(request):
+    return render(request, "recipes/air-fryer-scones.html")
+
+def creamyPorridge(request):
+    return render(request, "recipes/creamy-porridge.html")
+
+def yoghurtPancakes(request):
+    return render(request, "recipes/yoghurt-pancakes.html")
+
+# User Authentication Forms
 def register_view(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
@@ -39,9 +48,6 @@ def login_view(request):
             login(request, user)
             return redirect("home")
         else:
-            error = "Invalid username or password"
+            error = 'Invalid username or password'
 
     return render(request, "registration/login.html", {"error": error})
-
-def airFryerScones(request):
-    return render(request, "recipes/air-fryer-scones.html")
