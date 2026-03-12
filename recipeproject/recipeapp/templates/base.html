@@ -64,7 +64,7 @@
                     <!-- Welcome Message -->
                     {% if user.is_authenticated %}
                     <div class="d-xxl-flex d-none align-items-center">
-                        <span class="text-muted fst-italic m-0">Welcome {{ user.username }}</span>
+                        <span class="text-muted fst-italic m-0">Welcome {{ user.username }}!</span>
                     </div>
                     {% else %}
                     {% endif %}
@@ -90,9 +90,8 @@
                         <li class="nav-item">
 
                             <!-- Login/Logout Buttons -->
-                            <!-- FIX PADDING WHEN COLLAPSED -->
                             {% if user.is_authenticated %}
-                            <li class="nav-item d-flex align-items-center ps-2">
+                            <li class="nav-item d-flex align-items-center login-logout-button">
                                 <form action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-outline-success rounded-pill" >
@@ -102,7 +101,7 @@
                             </li>
                             
                             {% else %}
-                            <li class="nav-item ps-2">
+                            <li class="nav-item login-logout-button">
                                 <a class="btn btn-outline-success rounded-pill" href="{% url 'login' %}">Login</a>
                             </li>
                             {% endif %}
