@@ -72,3 +72,27 @@ def create_recipe(request):
 def recipe_list(request):
     recipes = Recipe.objects.all().order_by('-created_at')
     return render(request, 'recipes/recipe_list.html', {'recipes': recipes})
+
+
+
+
+
+def recipes_by_category(request, category):
+
+    recipes = Recipe.objects.filter(category=category)
+
+    category_descriptions = {
+        "breakfast": "Start your day right with our breakfast recipes. Discover quick, delicious, and wholesome ideas to fuel your morning, from hearty classics to fresh, creative twists.",
+        "lunch": "Discover simple, delicious lunch ideas to brighten your day. From quick sandwiches to hearty bowls, our daily recipes make lunchtime easy, healthy, and flavorful.",
+        "dinner": "TBC",
+        "dessert": "TBC",
+        "drink": "TBC",
+    }
+
+    description = category_descriptions.get(category, "")
+
+    return render(request, "recipes/category.html", {
+        "recipes": recipes,
+        "category": category,
+        "description": description
+    })
