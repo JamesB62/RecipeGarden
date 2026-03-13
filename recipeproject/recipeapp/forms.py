@@ -53,9 +53,18 @@ class RecipeForm(forms.ModelForm):
         fields = [
             "title",
             "description",
+            "category",
             "total_time",
             "servings",
             "ingredients",
             "instructions",
             "image",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs.update({"class": "form-control"})
+
+        self.fields["category"].widget.attrs.update({"class": "form-select"})

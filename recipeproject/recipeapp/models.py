@@ -17,7 +17,7 @@ class Recipe(models.Model):
 
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
 
-    total_time = models.PositiveIntegerField(help_text="Total cooking time (minutes)")
+    total_time = models.PositiveIntegerField(help_text="Time in minutes")
     servings = models.PositiveIntegerField()
 
     ingredients = models.TextField(help_text="List ingredients separated by lines")
