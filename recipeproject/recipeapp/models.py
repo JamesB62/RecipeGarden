@@ -2,9 +2,20 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Recipe(models.Model):
+
+    CATEGORY_CHOICES = [
+        ("breakfast", "Breakfast"),
+        ("lunch", "Lunch"),
+        ("dinner", "Dinner"),
+        ("dessert", "Dessert"),
+        ("drink", "Drink"),
+    ]
+
     title = models.CharField(max_length=200)
 
     description = models.TextField()
+
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
 
     total_time = models.PositiveIntegerField(help_text="Total cooking time (minutes)")
     servings = models.PositiveIntegerField()
