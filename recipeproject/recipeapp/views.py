@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, RecipeForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from .models import Recipe
 
 # Core Pages
 def home(request):
@@ -51,3 +53,22 @@ def login_view(request):
             error = 'Invalid username or password'
 
     return render(request, "registration/login.html", {"error": error})
+
+# Recipe Creation Form
+@login_required
+def create_recipe(request):
+    if request.method == "POST":
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+            return redirect("home")
+    else:
+        form = RecipeForm()
+
+    return render(request, "recipes/create_recipe.html", {"form": form})
+
+def recipe_list(request):
+    recipes = Recipe.objects.all().order_by('-created_at')
+    return render(request, 'recipes/recipe_list.html', {'recipes': recipes})
