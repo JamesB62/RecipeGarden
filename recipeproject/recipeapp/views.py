@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegisterForm, RecipeForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -6,7 +6,15 @@ from .models import Recipe
 
 # Core Pages
 def home(request):
-    return render(request, "home.html")
+    recipe1 = Recipe.objects.get(pk=4)
+    recipe2 = Recipe.objects.get(pk=8)
+    recipe3 = Recipe.objects.get(pk=12)
+
+    return render(request, "home.html", {
+        "recipe1": recipe1,
+        "recipe2": recipe2,
+        "recipe3": recipe3
+    })
 
 def breakfast(request):
     return render(request, "breakfast.html")
@@ -59,14 +67,7 @@ def create_recipe(request):
 
     return render(request, "recipes/create_recipe.html", {"form": form})
 
-def recipe_list(request):
-    recipes = Recipe.objects.all().order_by('-created_at')
-    return render(request, 'recipes/recipe_list.html', {'recipes': recipes})
-
-
-
-
-
+# View Recipes By Category
 def recipes_by_category(request, category):
 
     recipes = Recipe.objects.filter(category=category)
@@ -86,3 +87,7 @@ def recipes_by_category(request, category):
         "category": category,
         "description": description
     })
+
+def recipe_detail(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
