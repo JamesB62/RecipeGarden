@@ -37,60 +37,83 @@
         <div class="d-flex flex-wrap justify-content-center gap-4 px-4">
 
             <!-- Card 1 -->
-            <div class="card shadow" style="width: 437px;">
-                <img src="{% static 'creamy-chicken-pasta.jpg' %}" class="card-img-top" alt="creamy-chicken-pasta"
-                    style="max-height: 320px; object-fit: cover;">
-                <div class="card-body d-flex flex-column">
+            <div class="card d-flex flex-column shadow" style="width: 437px;">
+                <div class="d-block" style="height:320px; flex-shrink:0;">
+                    <img src="{{ recipe1.image.url }}" alt="{{ recipe1.title }}" class="w-100 h-100"
+                        style="object-fit: cover;">
+                </div>
+                <div class="card-body d-flex flex-column justify-content-start">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="card-title fancy-subtitle pt-2">Creamy Chicken Pasta</h5>
-                        <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                        <div class="d-flex flex-column w-100">
+                            <h5 class="card-title fancy-subtitle mb-0">{{ recipe1.title }}</h5>
+                        </div>
+                        <a href="{% url 'recipe_detail' recipe1.pk %}" class="btn btn-outline-success rounded-pill ms-3"
+                            style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                     </div>
-                    <hr class="gradient-divider">
-                    <p class="card-text fst-italic mx-3 mb-3">
-                        "Tried this recipe tonight and it turned out amazing!
-                        I added a little extra garlic and it gave the dish even more flavor.
-                        Definitely making this again."
-                    </p>
-                    <small class="text-muted d-block"><i class="bi bi-person-circle px-1"></i> James123 | 10 March
-                        2026</small>
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="mb-3">
+                            <hr class="gradient-divider">
+                            <p class="card-text mx-3">
+                                "This porridge was super creamy and comforting, and the blueberries added the perfect touch of sweetness. 
+                                Definitely a great, easy breakfast!"
+                            </p>
+                        </div>
+                        <small class="text-muted d-block"><i class="bi bi-person-circle px-1"></i> James123 | March 10, 2026, 10:35 a.m.</small>
+                    </div>
                 </div>
             </div>
 
             <!-- Card 2 -->
-            <div class="card shadow" style="width: 437px;">
-                <img src="{% static 'blueberry-muffins.jpg' %}" class="card-img-top" alt="blueberry-muffins"
-                    style="max-height: 320px; object-fit: cover;">
-                <div class="card-body d-flex flex-column">
+            <div class="card d-flex flex-column shadow" style="width: 437px;">
+                <div class="d-block" style="height:320px; flex-shrink:0;">
+                    <img src="{{ recipe2.image.url }}" alt="{{ recipe2.title }}" class="w-100 h-100"
+                        style="object-fit: cover;">
+                </div>
+                <div class="card-body d-flex flex-column justify-content-start">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="card-title fancy-subtitle pt-2">Blueberry Muffins</h5>
-                        <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                        <div class="d-flex flex-column w-100">
+                            <h5 class="card-title fancy-subtitle mb-0">{{ recipe2.title }}</h5>
+                        </div>
+                        <a href="{% url 'recipe_detail' recipe2.pk %}" class="btn btn-outline-success rounded-pill ms-3"
+                            style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                     </div>
-                    <hr class="gradient-divider">
-                    <p class="card-text fst-italic mx-3 mb-3">
-                        "Super easy to follow and the result was delicious.
-                        I substituted almond milk instead of regular milk and it still worked perfectly."
-                    </p>
-                    <small class="text-muted d-block mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10
-                        March 2026</small>
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="mb-3">
+                            <hr class="gradient-divider">
+                            <p class="card-text mx-3">
+                                "Absolutely delicious! 
+                                The cheese was perfectly gooey, and the bread toasted just right—simple but so satisfying."
+                            </p>
+                        </div>
+                        <small class="text-muted d-block"><i class="bi bi-person-circle px-1"></i> James123 | March 11, 2026, 1:01 p.m.</small>
+                    </div>
                 </div>
             </div>
 
             <!-- Card 3 -->
-            <div class="card shadow" style="width: 437px;">
-                <img src="{% static 'shakshuka.jpg' %}" class="card-img-top" alt="shakshuka"
-                    style="max-height: 320px; object-fit: cover;">
-                <div class="card-body d-flex flex-column">
+            <div class="card d-flex flex-column shadow" style="width: 437px;">
+                <div class="d-block" style="height:320px; flex-shrink:0;">
+                    <img src="{{ recipe3.image.url }}" alt="{{ recipe3.title }}" class="w-100 h-100"
+                        style="object-fit: cover;">
+                </div>
+                <div class="card-body d-flex flex-column justify-content-start">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="card-title fancy-subtitle pt-2">Shakshuka</h5>
-                        <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                        <div class="d-flex flex-column w-100">
+                            <h5 class="card-title fancy-subtitle mb-0">{{ recipe3.title }}</h5>
+                        </div>
+                        <a href="{% url 'recipe_detail' recipe3.pk %}" class="btn btn-outline-success rounded-pill ms-3"
+                            style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                     </div>
-                    <hr class="gradient-divider">
-                    <p class="card-text fst-italic mx-3 mb-3">
-                        "Great recipe! The cooking time was spot on and my family loved it.
-                        Next time I might add some chili flakes for a bit of heat."
-                    </p>
-                    <small class="text-muted d-block mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10
-                        March 2026</small>
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="mb-3">
+                            <hr class="gradient-divider">
+                            <p class="card-text mx-3">
+                                "The pork was tender and juicy, the veggies stayed crisp, and the sauce had the perfect balance of sweet and savory. 
+                                A quick, satisfying meal!"
+                            </p>
+                        </div>
+                        <small class="text-muted d-block"><i class="bi bi-person-circle px-1"></i> James123 | March 13, 2026, 8:41 p.m.</small>
+                    </div>
                 </div>
             </div>
         </div>

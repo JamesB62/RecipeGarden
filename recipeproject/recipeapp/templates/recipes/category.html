@@ -33,8 +33,7 @@
                             <h5 class="card-title fancy-subtitle mb-0">{{ recipe.title }}</h5>
                             <small class="text-muted">Time: {{ recipe.total_time }}min, Serves: {{ recipe.servings }}</small>
                         </div>
-                        <!-- Update Link href -->
-                        <a href="#" class="btn btn-outline-success rounded-pill ms-3"
+                        <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-outline-success rounded-pill ms-3"
                             style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                     </div>
                     <div class="d-flex flex-column justify-content-between h-100">

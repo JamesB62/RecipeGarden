@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ recipe.title|title }}{% endblock %}
+{% block content %}
+
+<div class="w-100">
+
+    <div class="d-flex flex-column align-items-center">
+        <h1>{{ recipe.title }}</h1>
+        <img src="{{ recipe.image.url }}" class="img-fluid mb-3" alt="{{ recipe.title }}">
+        <p><strong>Time:</strong> {{ recipe.total_time }} min | <strong>Servings:</strong> {{ recipe.servings }}</p>
+        <p>{{ recipe.description }}</p>
+        <small class="text-muted">Uploaded by {{ recipe.author }} on {{ recipe.created_at }}</small>
+
+    </div>
+
+
+
+
+</div>
+
+{% endblock %}
