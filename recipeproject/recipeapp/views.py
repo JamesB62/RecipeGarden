@@ -17,16 +17,6 @@ def lunch(request):
 def dinner(request):
     return render(request, "dinner.html")
 
-# Recipe Pages
-def airFryerScones(request):
-    return render(request, "recipes/air-fryer-scones.html")
-
-def creamyPorridge(request):
-    return render(request, "recipes/creamy-porridge.html")
-
-def yoghurtPancakes(request):
-    return render(request, "recipes/yoghurt-pancakes.html")
-
 # User Authentication Forms
 def register_view(request):
     if request.method == "POST":
@@ -84,7 +74,7 @@ def recipes_by_category(request, category):
     category_descriptions = {
         "breakfast": "Start your day right with our breakfast recipes. Discover quick, delicious, and wholesome ideas to fuel your morning, from hearty classics to fresh, creative twists.",
         "lunch": "Discover simple, delicious lunch ideas to brighten your day. From quick sandwiches to hearty bowls, our daily recipes make lunchtime easy, healthy, and flavorful.",
-        "dinner": "TBC",
+        "dinner": "Explore a collection of hearty and flavorful dinner recipes, from quick weeknight meals to indulgent dishes perfect for special occasions. Each recipe is crafted to bring comfort, satisfaction, and a touch of inspiration to your evening table.",
         "dessert": "TBC",
         "drink": "TBC",
     }

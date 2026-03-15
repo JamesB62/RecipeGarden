@@ -60,7 +60,6 @@
                         </button>
                     </form>
 
-                    <!-- Centre Welcome Message? -->
                     <!-- Welcome Message -->
                     {% if user.is_authenticated %}
                     <div class="d-xxl-flex d-none align-items-center">
@@ -76,9 +75,9 @@
                                 Daily Recipes
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end text-center">
-                                <li><a class="dropdown-item" href="recipes/category/breakfast/">Breakfast</a></li>
-                                <li><a class="dropdown-item" href="/lunch">Lunch</a></li>
-                                <li><a class="dropdown-item" href="/dinner">Dinner</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'breakfast' %}">Breakfast</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'lunch' %}">Lunch</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'dinner' %}">Dinner</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -87,32 +86,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/">Holidays</a>
                         </li>
-                        <li class="nav-item">
 
-                            <!-- Login/Logout Buttons -->
-                            {% if user.is_authenticated %}
-                            <li class="nav-item d-flex align-items-center login-logout-button">
-                                <form action="{% url 'logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-outline-success rounded-pill" >
-                                        Logout
-                                    </button>
-                                </form>
-                            </li>
-                            
-                            {% else %}
-                            <li class="nav-item login-logout-button">
-                                <a class="btn btn-outline-success rounded-pill" href="{% url 'login' %}">Login</a>
-                            </li>
-                            {% endif %}
+                        <!-- Login/Logout Buttons -->
+                        {% if user.is_authenticated %}
+                        <li class="nav-item d-flex align-items-center login-logout-button">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-success rounded-pill" >
+                                    Logout
+                                </button>
+                            </form>
                         </li>
+                        
+                        {% else %}
+                        <li class="nav-item login-logout-button">
+                            <a class="btn btn-outline-success rounded-pill" href="{% url 'login' %}">Login</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
 
         <!-- Page Content -->
-        <div class="flex-grow-1 mt-4 mb-5">
+        <div class="d-flex flex-grow-1 flex-column align-items-center my-3">
             {% block content %}
             {% endblock %}
         </div>
