@@ -3,87 +3,95 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<!-- Chef's Special Video Block -->
-<div class="d-flex flex-column align-items-center px-4 mb-4">
-    <div style="width: 100%; max-width: 960px;" class="text-start">
-        <h2 class="fancy-subtitle">Chef's Special Video</h2>
-        <p style="width: 100%; max-width: 960px;">
-            Watch our Chef's Special Video, where expert culinary techniques and creative cooking come together to bring
-            delicious dishes to life.
-            This showcase highlights the skill, passion, and artistry behind every recipe.
-        </p>
-    </div>
-    <div class="ratio ratio-16x9" style="max-width: 960px;">
-        <video class="rounded shadow" autoplay loop muted>
-            <source src="{% static 'cooking-b-roll.mp4' %}" type="video/mp4">
-        </video>
-    </div>
-</div>
+<!-- Page Content Block -->
+<div class="w-100">
 
-<hr class="gradient-divider">
-
-<!-- Community Activity Block -->
-<div class="d-flex flex-column align-items-center px-4">
-    <div style="width: 100%; max-width: 1360px;" class="text-start">
-        <h2 class="fancy-subtitle">Community Activity</h2>
-        <p>Check out what the Recipe Garden community is saying about our delicious recipes.</p>
+    <!-- Chef's Special Video Block -->
+    <div class="d-flex flex-column align-items-center px-4 mb-4">
+        <div style="width: 100%; max-width: 960px;" class="text-start">
+            <h2 class="fancy-subtitle">Chef's Special Video</h2>
+            <p style="width: 100%; max-width: 960px;">
+                Watch our Chef's Special Video, where expert culinary techniques and creative cooking come together to
+                bring
+                delicious dishes to life.
+                This showcase highlights the skill, passion, and artistry behind every recipe.
+            </p>
+        </div>
+        <div class="ratio ratio-16x9" style="max-width: 960px;">
+            <video class="rounded shadow" autoplay loop muted>
+                <source src="{% static 'cooking-b-roll.mp4' %}" type="video/mp4">
+            </video>
+        </div>
     </div>
 
-    <!-- Comment Cards -->
-    <div class="d-flex flex-wrap justify-content-center gap-4 px-4">
+    <hr class="gradient-divider mx-auto" style="max-width: 1360px;">
 
-        <!-- Card 1 -->
-        <div class="card shadow" style="width: 437px;">
-            <img src="{% static 'creamy-chicken-pasta.jpg' %}" class="card-img-top" alt="creamy-chicken-pasta"
-                style="max-height: 320px; object-fit: cover;">
-            <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title fancy-subtitle pt-2">Creamy Chicken Pasta</h5>
-                    <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
-                </div>
-                <hr class="gradient-divider">
-                <p class="card-text fst-italic mx-3 mb-3">
-                    "Tried this recipe tonight and it turned out amazing!
-                    I added a little extra garlic and it gave the dish even more flavor.
-                    Definitely making this again."
-                </p>
-                <small class="text-muted d-block"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
-            </div>
+    <!-- Community Activity Block -->
+    <div class="d-flex flex-column align-items-center px-4">
+        <div style="width: 100%; max-width: 1360px;" class="text-start">
+            <h2 class="fancy-subtitle">Community Activity</h2>
+            <p>Check out what the Recipe Garden community is saying about our delicious recipes.</p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="card shadow" style="width: 437px;">
-            <img src="{% static 'blueberry-muffins.jpg' %}" class="card-img-top" alt="blueberry-muffins"
-                style="max-height: 320px; object-fit: cover;">
-            <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title fancy-subtitle pt-2">Blueberry Muffins</h5>
-                    <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+        <!-- Comment Cards -->
+        <div class="d-flex flex-wrap justify-content-center gap-4 px-4">
+
+            <!-- Card 1 -->
+            <div class="card shadow" style="width: 437px;">
+                <img src="{% static 'creamy-chicken-pasta.jpg' %}" class="card-img-top" alt="creamy-chicken-pasta"
+                    style="max-height: 320px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title fancy-subtitle pt-2">Creamy Chicken Pasta</h5>
+                        <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                    </div>
+                    <hr class="gradient-divider">
+                    <p class="card-text fst-italic mx-3 mb-3">
+                        "Tried this recipe tonight and it turned out amazing!
+                        I added a little extra garlic and it gave the dish even more flavor.
+                        Definitely making this again."
+                    </p>
+                    <small class="text-muted d-block"><i class="bi bi-person-circle px-1"></i> James123 | 10 March
+                        2026</small>
                 </div>
-                <hr class="gradient-divider">
-                <p class="card-text fst-italic mx-3 mb-3">
-                    "Super easy to follow and the result was delicious.
-                    I substituted almond milk instead of regular milk and it still worked perfectly."
-                </p>
-                <small class="text-muted d-block mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
             </div>
-        </div>
-        
-        <!-- Card 3 -->
-        <div class="card shadow" style="width: 437px;">
-            <img src="{% static 'shakshuka.jpg' %}" class="card-img-top" alt="shakshuka"
-                style="max-height: 320px; object-fit: cover;">
-            <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title fancy-subtitle pt-2">Shakshuka</h5>
-                    <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+
+            <!-- Card 2 -->
+            <div class="card shadow" style="width: 437px;">
+                <img src="{% static 'blueberry-muffins.jpg' %}" class="card-img-top" alt="blueberry-muffins"
+                    style="max-height: 320px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title fancy-subtitle pt-2">Blueberry Muffins</h5>
+                        <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                    </div>
+                    <hr class="gradient-divider">
+                    <p class="card-text fst-italic mx-3 mb-3">
+                        "Super easy to follow and the result was delicious.
+                        I substituted almond milk instead of regular milk and it still worked perfectly."
+                    </p>
+                    <small class="text-muted d-block mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10
+                        March 2026</small>
                 </div>
-                <hr class="gradient-divider">
-                <p class="card-text fst-italic mx-3 mb-3">
-                    "Great recipe! The cooking time was spot on and my family loved it.
-                    Next time I might add some chili flakes for a bit of heat."
-                </p>
-                <small class="text-muted d-block mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10 March 2026</small>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card shadow" style="width: 437px;">
+                <img src="{% static 'shakshuka.jpg' %}" class="card-img-top" alt="shakshuka"
+                    style="max-height: 320px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title fancy-subtitle pt-2">Shakshuka</h5>
+                        <a href="/" class="btn btn-outline-success rounded-pill">Visit Recipe</a>
+                    </div>
+                    <hr class="gradient-divider">
+                    <p class="card-text fst-italic mx-3 mb-3">
+                        "Great recipe! The cooking time was spot on and my family loved it.
+                        Next time I might add some chili flakes for a bit of heat."
+                    </p>
+                    <small class="text-muted d-block mt-auto"><i class="bi bi-person-circle px-1"></i> James123 | 10
+                        March 2026</small>
+                </div>
             </div>
         </div>
     </div>
