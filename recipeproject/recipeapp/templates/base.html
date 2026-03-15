@@ -71,13 +71,15 @@
                     <!-- Right Aligned Links -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
                                 Daily Recipes
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end text-center">
                                 <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'breakfast' %}">Breakfast</a></li>
                                 <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'lunch' %}">Lunch</a></li>
                                 <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'dinner' %}">Dinner</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'dessert' %}">Dessert</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'drinks' %}">Drinks</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

@@ -29,7 +29,6 @@ nav a.nav-link:hover {
 }
 
 .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
     max-width: 160px;
     width: 100%;
 }

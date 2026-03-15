@@ -76,8 +76,8 @@ def recipes_by_category(request, category):
         "breakfast": "Start your day right with our breakfast recipes. Discover quick, delicious, and wholesome ideas to fuel your morning, from hearty classics to fresh, creative twists.",
         "lunch": "Discover simple, delicious lunch ideas to brighten your day. From quick sandwiches to hearty bowls, our daily recipes make lunchtime easy, healthy, and flavorful.",
         "dinner": "Explore a collection of hearty and flavorful dinner recipes, from quick weeknight meals to indulgent dishes perfect for special occasions. Each recipe is crafted to bring comfort, satisfaction, and a touch of inspiration to your evening table.",
-        "dessert": "TBC",
-        "drink": "TBC",
+        "dessert": "Indulge your sweet tooth with our collection of irresistible desserts. From quick everyday treats to rich, decadent favourites, there's something here to satisfy every craving and finish your meal on a perfect note.",
+        "drinks": "Refresh and recharge with our collection of delicious drinks. From cosy warm beverages to cool, refreshing sips, these recipes are perfect for any time of day.",
     }
 
     description = category_descriptions.get(category, "")

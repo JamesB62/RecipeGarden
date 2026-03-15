@@ -7,7 +7,7 @@ class Recipe(models.Model):
         ("lunch", "Lunch"),
         ("dinner", "Dinner"),
         ("dessert", "Dessert"),
-        ("drink", "Drink"),
+        ("drinks", "Drinks"),
     ]
     title = models.CharField(max_length=200)
     description = models.TextField()
