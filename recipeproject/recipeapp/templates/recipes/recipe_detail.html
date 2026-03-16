@@ -47,7 +47,7 @@
                         <small class="text-muted d-block">Created By:<i class="bi bi-person-circle px-1"></i>{{ recipe.author }} | {{ recipe.created_at }}</small>
                         {% if user == recipe.author %}
                             <div class="d-flex justify-content-start gap-2">
-                                <a class="btn btn-outline-secondary rounded-pill" href="{% url 'edit_recipe' recipe.pk %}">Edit</a>
+                                <a class="btn btn-outline-success rounded-pill" href="{% url 'edit_recipe' recipe.pk %}">Edit</a>
                                 <a class="btn btn-outline-danger rounded-pill" href="{% url 'delete_recipe' recipe.pk %}">Delete</a>
                             </div>
                         {% endif %}
