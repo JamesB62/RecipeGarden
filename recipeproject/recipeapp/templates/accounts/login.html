@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<!-- Page Content Block -->
+<div class="w-100">
+
+    <!-- Login Block -->
+    <div class="d-flex flex-column align-items-center mx-4">
+
+        <!-- Login Card -->
+        <div class="card shadow p-4 w-100" style="max-width: 500px;">
+            <h2 class="fancy-subtitle mb-2">Login</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label for="id_username" class="form-label mb-0">Username</label>
+                    <input type="text" name="username" id="id_username" class="form-control" required value="{{ form.username.value|default_if_none:'' }}">
+                    {% if form.username.errors %}
+                        {% for error in form.username.errors %}
+                            <div class="text-danger small mb-0">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="id_password" class="form-label mb-0">Password</label>
+                    <input type="password" name="password" id="id_password" class="form-control" required>
+                    {% if form.password.errors %}
+                        {% for error in form.password.errors %}
+                            <div class="text-danger small mb-0">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Non-Field Errors -->
+                {% for error in form.non_field_errors %}
+                    <div class="text-danger small mb-0">{{ error }}</div>
+                {% endfor %}
+
+                <!-- Closing Button/Links -->
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <div>
+                        <button type="submit" class="btn btn-outline-success rounded-pill">Login</button>
+                    </div>
+                    <small class="text-muted mt-2">Don't have an account? <a class="text-decoration-none" href="{% url 'register' %}">Register here</a></small>
+                    <!-- Add Missing Link -->
+                    <small class="text-muted">Forgot your password? <a class="text-decoration-none" href="/">Reset password here</a></small>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
