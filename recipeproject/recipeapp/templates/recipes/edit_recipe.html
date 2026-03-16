@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Edit Recipe{% endblock %}
+{% block content %}
+
+<!-- Page Content Block -->
+<div class="w-100">
+
+    <!-- Edit Recipe Block -->
+    <div class="d-flex flex-column align-items-center mx-4">
+
+        <!-- Edit Recipe Card -->
+        <div class="card shadow w-100 p-4" style="max-width: 600px;">
+            <h2 class="fancy-subtitle mb-2">Edit Recipe</h2>
+            <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label mb-0">{{ field.label|title }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                    <div class="form-text small my-0">{{ field.help_text }}</div>
+                    {% endif %}
+                    {% for error in field.errors %}
+                    <div class="text-danger small my-0">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <div class="d-flex justify-content-start gap-2 mt-3">
+                    <button type="submit" class="btn btn-outline-success rounded-pill">Update Recipe</button>
+                    <a class="btn btn-outline-secondary rounded-pill" href="{% url 'recipe_detail' recipe.pk %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
