@@ -122,14 +122,14 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-# Media files
-
+# Media Files
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# URL prefix for media files
 MEDIA_URL = "/media/"
 
-# Folder where uploaded media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Email Backend
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
