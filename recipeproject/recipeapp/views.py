@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Django Auth
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 
 # Local Imports
 from .forms import RecipeForm, CustomUserCreationForm
@@ -84,3 +84,29 @@ def recipes_by_category(request, category):
 def recipe_detail(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
     return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
+
+# Recipe Edit View
+@login_required
+def edit_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    if recipe.author != request.user:
+        return redirect('home')
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            form.save()
+            return redirect('recipe_detail', pk=recipe.pk)
+    else:
+        form = RecipeForm(instance=recipe)
+    return render(request, 'recipes/edit_recipe.html', {'form': form, 'recipe': recipe})
+
+# Recipe Delete View
+@login_required
+def delete_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    if recipe.author != request.user:
+        return redirect('home')
+    if request.method == 'POST':
+        recipe.delete()
+        return redirect('home')
+    return render(request, 'recipes/confirm_delete.html', {'recipe': recipe})
