@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<!-- Page Content Block -->
+<div class="w-100">
+
+    <!-- Register Block -->
+    <div class="d-flex flex-column align-items-center mx-4">
+
+        <!-- Register Card -->
+        <div class="card shadow p-4 w-100" style="max-width: 500px;">
+            <h2 class="fancy-subtitle mb-2">Register</h2>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="id_username" class="form-label mb-0">Username</label>
+                    <input type="text" name="username" id="id_username" class="form-control" required value="{{ form.username.value|default_if_none:'' }}">
+                    {% for error in form.username.errors %}
+                        <div class="text-danger small mb-0">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Password 1 -->
+                <div class="mb-3">
+                    <label for="id_password1" class="form-label mb-0">Password</label>
+                    <input type="password" name="password1" id="id_password1" class="form-control" required>
+                    {% for error in form.password1.errors %}
+                        <div class="text-danger small mb-0">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Password 2 -->
+                <div>
+                    <label for="id_password2" class="form-label mb-0">Confirm Password</label>
+                    <input type="password" name="password2" id="id_password2" class="form-control" required>
+                    {% for error in form.password2.errors %}
+                        <div class="text-danger small mb-0">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Non Field Errors -->
+                {% for error in form.non_field_errors %}
+                    <div class="text-danger small mb-0">{{ error }}</div>
+                {% endfor %}
+
+                <!-- Closing Buttons/Links -->
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <div>
+                        <button type="submit" class="btn btn-outline-success rounded-pill">Register</button>
+                    </div>
+
+                    <small class="text-muted mt-2">
+                        Already have an account?
+                        <a class="text-decoration-none" href="{% url 'login' %}">Login here</a>
+                    </small>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
