@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 # Local Imports
-from .forms import RecipeForm
+from .forms import RecipeForm, CustomUserCreationForm
 from .models import Recipe
 
 # Core Page Views
@@ -23,15 +23,14 @@ def home(request):
 
 # Register View
 def register_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')
+            form.save()
+            return redirect('login')
     else:
-        form = UserCreationForm()
-    return render(request, 'accounts/register.html', {'form': form})
+        form = CustomUserCreationForm()
+    return render(request, "accounts/register.html", {"form": form})
 
 # Login View
 def login_view(request):

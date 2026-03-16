@@ -48,8 +48,7 @@
                         <button type="submit" class="btn btn-outline-success rounded-pill">Login</button>
                     </div>
                     <small class="text-muted mt-2">Don't have an account? <a class="text-decoration-none" href="{% url 'register' %}">Register here</a></small>
-                    <!-- Add Missing Link -->
-                    <small class="text-muted">Forgot your password? <a class="text-decoration-none" href="/">Reset password here</a></small>
+                    <small class="text-muted">Forgot your password? <a class="text-decoration-none" href="{% url 'password_reset' %}">Reset password here</a></small>
                 </div>
             </form>
         </div>
