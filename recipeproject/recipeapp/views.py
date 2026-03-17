@@ -6,6 +6,9 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 
+# Django Database
+from django.db.models import Q
+
 # Local Imports
 from .forms import RecipeForm, CustomUserCreationForm
 from .models import Recipe
@@ -111,3 +114,16 @@ def delete_recipe(request, pk):
         recipe.delete()
         return redirect('home')
     return render(request, 'recipes/confirm_delete.html', {'recipe': recipe})
+
+# Recipe Search View
+def recipe_search(request):
+    query = request.GET.get('q', '') 
+    results = []
+    if query:
+        results = Recipe.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        ).distinct()
+    return render(request, 'search/recipe_search.html', {
+        'query': query,
+        'results': results
+    })

@@ -55,8 +55,8 @@
                     </ul>
 
                     <!-- Search Bar -->
-                    <form class="d-flex search-form px-3" role="search">
-                        <input class="form-control me-2 rounded-pill" type="search" placeholder="I'm craving..." aria-label="Search"/>
+                    <form class="d-flex search-form px-3" method="GET" action="{% url 'recipe_search' %}">
+                        <input class="form-control me-2 rounded-pill" type="text" name="q" value="{{ request.GET.q }}" placeholder="I'm craving..."/>
                         <button class="btn btn-outline-success rounded-pill" type="submit">
                             Search
                         </button>
