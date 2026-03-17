@@ -27,15 +27,20 @@ class RecipeForm(forms.ModelForm):
             "title",
             "description",
             "category",
+            "subcategories",
             "total_time",
             "servings",
             "ingredients",
             "instructions",
             "image",
         ]
+        widgets = {
+            "subcategories": forms.CheckboxSelectMultiple
+        }
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs.update({"class": "form-control", "style": "resize: none;"})
-            field.error_messages["required"] = "This field is required."
+        for name, field in self.fields.items():
+            if name != "subcategories":
+                field.widget.attrs.update({"class": "form-control", "style": "resize: none;"})
+                field.error_messages["required"] = "This field is required."
         self.fields["category"].widget.attrs.update({"class": "form-select"})
