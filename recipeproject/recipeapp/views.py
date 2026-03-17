@@ -58,6 +58,7 @@ def create_recipe(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
+            form.save_m2m()
             return redirect("home")
     else:
         form = RecipeForm()
@@ -92,7 +93,7 @@ def edit_recipe(request, pk):
     if recipe.author != request.user:
         return redirect('home')
     if request.method == 'POST':
-        form = RecipeForm(request.POST, instance=recipe)
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
             return redirect('recipe_detail', pk=recipe.pk)

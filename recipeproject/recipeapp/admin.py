@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe
+from .models import Recipe, Subcategory
 
 # Register your models here.
 
@@ -9,3 +9,5 @@ class RecipeAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description', 'ingredients')
     list_filter = ('author', 'created_at')
     ordering = ('-created_at',)
+
+admin.site.register(Subcategory)

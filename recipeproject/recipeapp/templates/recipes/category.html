@@ -36,6 +36,11 @@
                         <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-outline-success rounded-pill ms-3"
                             style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
                     </div>
+                    <div class="d-flex align-items-center justify-content-start gap-2 mt-2">
+                        {% for sub in recipe.subcategories.all %}
+                            <span class="badge bg-success rounded-pill fw-normal pt-1 px-2" style="padding-bottom: 0.35rem;">{{ sub.name }}</span>
+                        {% endfor %}
+                    </div>
                     <div class="d-flex flex-column justify-content-between h-100">
                         <div class="mb-3">
                             <hr class="gradient-divider">
