@@ -72,6 +72,8 @@
 
                     <!-- Right Aligned Links -->
                     <ul class="navbar-nav ms-auto">
+
+                        <!-- Daily Recipes -->
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
                                 Daily Recipes
@@ -84,11 +86,21 @@
                                 <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'drinks' %}">Drinks</a></li>
                             </ul>
                         </li>
+
+                        <!-- Health & Diet -->
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/">Health & Diet</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Holidays</a>
+
+                        <!-- Holidays -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
+                                Holidays
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end text-center">
+                                <li><a class="dropdown-item" href="{% url 'holiday_recipes' 'new-years-day' %}">New Year's Day</a></li>
+                                <li><a class="dropdown-item" href="{% url 'holiday_recipes' 'mothers-day' %}">Mother's Day</a></li>
+                            </ul>
                         </li>
 
                         <!-- Login/Logout Buttons -->
