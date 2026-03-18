@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Subcategory
+from .models import Recipe, Subcategory, Holiday
 
 # Register your models here.
 
@@ -11,3 +11,5 @@ class RecipeAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
 
 admin.site.register(Subcategory)
+
+admin.site.register(Holiday)

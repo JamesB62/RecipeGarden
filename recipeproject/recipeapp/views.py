@@ -80,8 +80,31 @@ def recipes_by_category(request, category):
     description = category_descriptions.get(category, "")
     return render(request, "recipes/category.html", {
         "recipes": recipes,
-        "category": category,
+        # "category": category,
+        "page_title": f"Daily {category.title()} Recipes",
+        "tab_title": category,
         "description": description
+    })
+
+# Recipes By Holiday View
+def holiday_recipes(request, holiday_slug):
+    recipes = Recipe.objects.filter(holidays__slug=holiday_slug)
+    page_info = {
+        "mothers-day": {
+            "title": "Mother's Day Recipes",
+            "description": "Make Mother's Day special with our collection of sweet and savory recipes she'll love. Perfect for breakfast in bed, brunch, or a memorable family meal.",
+        },
+        "new-years-day": {
+            "title": "New Year's Day Recipes",
+            "description": "Celebrate the New Year with recipes that bring joy to the table. From festive breakfasts to indulgent treats and hearty meals, our collection has ideas to make your celebration memorable and delicious.",
+        },
+    }
+    info = page_info.get(holiday_slug, {"title": "Holiday Recipes", "description": ""})
+    return render(request, "recipes/category.html", {
+        "recipes": recipes,
+        "page_title": info["title"],
+        "tab_title": info["title"],
+        "description": info["description"],
     })
 
 # Recipe Details View
