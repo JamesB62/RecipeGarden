@@ -1,6 +1,6 @@
 # Recipe Garden
 
-Recipe Garden is a recipe management web application built with Django. Users can browse recipes, create their own, edit existing ones, and search for dishes using keywords. The goal of the project is to provide a clean and simple way to organise and discover recipes online.
+Recipe Garden is a recipe management web application built with Django. Users can browse recipes, create their own, edit existing ones, and search for dishes using keywords. The goal of the project is to provide a clean and simple way to organise and discover new recipes online.
 
 ## Features
 
@@ -13,12 +13,16 @@ Recipe Garden is a recipe management web application built with Django. Users ca
 ## Screenshots
 
 Home Page  
-*TBC*
+
+<img width="1920" height="1505" alt="home-page" src="https://github.com/user-attachments/assets/373eda99-15d8-4da0-88e2-b9dcafc52627" />
 
 Recipe Page  
-*TBC*
+
+<img width="1920" height="951" alt="recipe-page" src="https://github.com/user-attachments/assets/2a7f1483-cfcd-4044-be12-3196c34300f8" />
 
 ## Installation
+
+Using GitHub CLI inside your prefered IDE, follow these steps:
 
 1. Clone the repository
 
@@ -54,23 +58,22 @@ python manage.py runserver
 
 ## Usage
 
-- Visit http://127.0.0.1:8000 in your browser
-- Create an account or log in
-- Browse recipes or add your own
-- Use the search bar to find specific dishes
+- Enter http://127.0.0.1:8000 into your web browser's address bar
+- Register a new account or log into an existing account
+- Browse the available recipes or add your own to the collection
+- Use the search bar to find specific dishes using keywords
 
-## Produced Using
+## Developed Using
 
 - Python
 - Django
+- HTML
+- CSS
 - Bootstrap
-- HTML / CSS
 
 ## Future Improvements
 
 - Add recipe ratings and reviews
 - Improve search filtering
-- Improve page navigation
 
-Created by James Buchan
-GitHub: https://github.com/JamesB62
+Created by James Buchan | GitHub: https://github.com/JamesB62
