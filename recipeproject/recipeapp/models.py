@@ -1,5 +1,28 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+
+# Subcategory Model
+class Subcategory(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+    def save(self, *args, **kwargs):
+        if not self.slug and self.name:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+    def __str__(self):
+        return self.name
+
+# Holiday Model
+class Holiday(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+    def __str__(self):
+        return self.name
 
 # Recipe Creation Model
 class Recipe(models.Model):
@@ -13,6 +36,8 @@ class Recipe(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+    subcategories = models.ManyToManyField(Subcategory, blank=True)
+    holidays = models.ManyToManyField(Holiday, blank=True)
     total_time = models.PositiveIntegerField(help_text="Time in minutes")
     servings = models.PositiveIntegerField()
     ingredients = models.TextField(help_text="List ingredients separated by lines")

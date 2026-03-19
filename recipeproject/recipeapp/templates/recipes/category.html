@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ category|title }}{% endblock %}
+{% block title %}{{ tab_title|title }}{% endblock %}
 {% block content %}
 
 <!-- Page Content Block -->
@@ -10,7 +10,7 @@
     <div class="d-flex flex-column align-items-center mx-4">
         <div style="max-width: 900px;" class="mx-auto">
             <div class="d-flex justify-content-between align-items-center gap-3 mb-2">
-                <h2 class="fancy-subtitle mb-0">Daily {{ category|title }} Recipes</h2>
+                <h2 class="fancy-subtitle mb-0">{{ page_title }}</h2>
                 <a href="{% url 'create_recipe'%}" class="btn btn-outline-success rounded-pill me-3"
                     style="flex-shrink: 0; height: 38px;">Create Recipe</a>
             </div>
@@ -19,11 +19,11 @@
 
         <!-- Recipe Cards Block -->
         {% for recipe in recipes %}
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column align-items-center w-100">
 
             <!-- Card Template -->
-            <div class="card d-flex flex-row mt-3 shadow" style="max-width: 900px;">
-                <div class="d-none d-md-block" style="width:240px; flex-shrink:0;">
+            <div class="card d-flex flex-row mt-3 shadow w-100" style="max-width: 900px;">
+                <div class="d-none d-md-block" style="width: 240px; height: 250px; flex-shrink: 0;">
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="rounded-start w-100 h-100"
                         style="object-fit: cover;">
                 </div>
@@ -35,6 +35,11 @@
                         </div>
                         <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-outline-success rounded-pill ms-3"
                             style="flex-shrink: 0; width: 111px; height: 38px;">View Recipe</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-start gap-2 mt-2">
+                        {% for sub in recipe.subcategories.all %}
+                            <span class="badge bg-success rounded-pill fw-normal pt-1 px-2" style="padding-bottom: 0.35rem;">{{ sub.name }}</span>
+                        {% endfor %}
                     </div>
                     <div class="d-flex flex-column justify-content-between h-100">
                         <div class="mb-3">
@@ -49,9 +54,10 @@
 
         <!-- Empty Category Placeholder -->
         {% empty %}
-        <div class="d-flex flex-column align-items-center justify-content-center mt-5" style="max-width: 900px;">
+        <p class="text-muted fst-italic mt-2 mb-0">No recipes in this category.</p>
+        <!-- <div class="d-flex flex-column align-items-center justify-content-center mt-5" style="max-width: 900px;">
             <small class="text-muted fst-italic mb-0">No recipes in this category.</small>
-        </div>
+        </div> -->
         {% endfor %}
     </div>
 </div>

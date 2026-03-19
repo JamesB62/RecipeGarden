@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delete Recipe{% endblock %}
+{% block content %}
+
+<!-- Page Content Block -->
+<div class="w-100">
+
+    <!-- Delete Recipe Confirmation Block -->
+    <div class="d-flex flex-column align-items-center mx-4">
+
+        <!-- Delete Recipe Confirmation Card -->
+        <div class="card shadow p-4 w-100" style="max-width: 500px;">
+            <h2 class="fancy-subtitle mb-2">Delete This Recipe?</h2>
+            <p class="mb-2">Are you sure you want to permanently delete the "{{ recipe.title }}" recipe?</p>
+            <small class="text-danger mb-0">This action cannot be undone.</small>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="d-flex justify-content-start gap-2 mt-3">
+                    <button class="btn btn-outline-danger rounded-pill" type="submit">Delete</button>
+                    <a class="btn btn-outline-secondary rounded-pill" href="{% url 'recipe_detail' recipe.pk %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

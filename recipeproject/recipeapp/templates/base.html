@@ -55,8 +55,8 @@
                     </ul>
 
                     <!-- Search Bar -->
-                    <form class="d-flex search-form px-3" role="search">
-                        <input class="form-control me-2 rounded-pill" type="search" placeholder="I'm craving..." aria-label="Search"/>
+                    <form class="d-flex search-form px-3" method="GET" action="{% url 'recipe_search' %}">
+                        <input class="form-control me-2 rounded-pill" type="text" name="q" value="{{ request.GET.q }}" placeholder="I'm craving..."/>
                         <button class="btn btn-outline-success rounded-pill" type="submit">
                             Search
                         </button>
@@ -72,6 +72,8 @@
 
                     <!-- Right Aligned Links -->
                     <ul class="navbar-nav ms-auto">
+
+                        <!-- Daily Recipes -->
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
                                 Daily Recipes
@@ -84,11 +86,27 @@
                                 <li><a class="dropdown-item" href="{% url 'recipes_by_category' 'drinks' %}">Drinks</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Health & Diet</a>
+
+                        <!-- Health & Diet -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
+                                Health & Diet
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end text-center">
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_subcategory' 'keto' %}">Keto</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_subcategory' 'vegetarian' %}">Vegetarian</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Holidays</a>
+
+                        <!-- Holidays -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
+                                Holidays
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end text-center">
+                                <li><a class="dropdown-item" href="{% url 'holiday_recipes' 'new-years-day' %}">New Year's Day</a></li>
+                                <li><a class="dropdown-item" href="{% url 'holiday_recipes' 'mothers-day' %}">Mother's Day</a></li>
+                            </ul>
                         </li>
 
                         <!-- Login/Logout Buttons -->
