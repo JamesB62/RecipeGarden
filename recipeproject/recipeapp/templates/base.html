@@ -88,8 +88,14 @@
                         </li>
 
                         <!-- Health & Diet -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Health & Diet</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="recipesDropdown" role="button" data-bs-toggle="dropdown">
+                                Health & Diet
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end text-center">
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_subcategory' 'keto' %}">Keto</a></li>
+                                <li><a class="dropdown-item" href="{% url 'recipes_by_subcategory' 'vegetarian' %}">Vegetarian</a></li>
+                            </ul>
                         </li>
 
                         <!-- Holidays -->

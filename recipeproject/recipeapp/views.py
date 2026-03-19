@@ -11,7 +11,7 @@ from django.db.models import Q
 
 # Local Imports
 from .forms import RecipeForm, CustomUserCreationForm
-from .models import Recipe
+from .models import Recipe, Subcategory
 
 # Core Page Views
 def home(request):
@@ -86,16 +86,34 @@ def recipes_by_category(request, category):
         "description": description
     })
 
+# Recipes By Subcategory View
+def recipes_by_subcategory(request, subcategory_slug):
+    subcategory = get_object_or_404(Subcategory, slug=subcategory_slug)
+    recipes = Recipe.objects.filter(subcategories=subcategory)
+    subcategory_descriptions = {
+        "keto": "Discover delicious low-carb recipes designed to fuel your body while keeping carbs in check. From satisfying meals to guilt-free treats, these keto-friendly dishes make it easy to stay on track without sacrificing flavour.",
+        "vegetarian": "Explore a vibrant collection of vegetarian recipes packed with fresh ingredients and bold flavours. Whether you're fully plant-based or just looking for meat-free options, these dishes are wholesome, satisfying, and easy to enjoy.",
+    }
+    description = subcategory_descriptions.get(subcategory.slug, "")
+    return render(request, "recipes/category.html", {
+        "recipes": recipes,
+        "page_title": f"{subcategory.name} Recipes",
+        "tab_title": subcategory.name,
+        "description": description
+    })
+
 # Recipes By Holiday View
 def holiday_recipes(request, holiday_slug):
     recipes = Recipe.objects.filter(holidays__slug=holiday_slug)
     page_info = {
         "mothers-day": {
             "title": "Mother's Day Recipes",
+            "tab_title": "Mother's Day",
             "description": "Make Mother's Day special with our collection of sweet and savory recipes she'll love. Perfect for breakfast in bed, brunch, or a memorable family meal.",
         },
         "new-years-day": {
             "title": "New Year's Day Recipes",
+            "tab_title": "New Year's Day",
             "description": "Celebrate the New Year with recipes that bring joy to the table. From festive breakfasts to indulgent treats and hearty meals, our collection has ideas to make your celebration memorable and delicious.",
         },
     }
@@ -103,7 +121,7 @@ def holiday_recipes(request, holiday_slug):
     return render(request, "recipes/category.html", {
         "recipes": recipes,
         "page_title": info["title"],
-        "tab_title": info["title"],
+        "tab_title": info["tab_title"],
         "description": info["description"],
     })
 
