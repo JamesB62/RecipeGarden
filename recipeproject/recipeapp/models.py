@@ -42,7 +42,7 @@ class Recipe(models.Model):
     servings = models.PositiveIntegerField()
     ingredients = models.TextField(help_text="List ingredients separated by lines")
     instructions = models.TextField(help_text="Write the step-by-step instructions")
-    image = models.ImageField(upload_to="recipes/", blank=True, null=True)
+    image = models.ImageField(upload_to="recipes/", default="recipes/default.jpg")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
