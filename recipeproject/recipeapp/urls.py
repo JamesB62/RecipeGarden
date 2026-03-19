@@ -23,6 +23,7 @@ urlpatterns = [
     path('recipes/<int:pk>/', views.recipe_detail, name='recipe_detail'),
     path('recipes/<int:pk>/edit/', views.edit_recipe, name='edit_recipe'),
     path('recipes/<int:pk>/delete/', views.delete_recipe, name='delete_recipe'),
+    path("recipes/subcategory/<slug:subcategory_slug>/", views.recipes_by_subcategory, name="recipes_by_subcategory"),
     path("recipes/holiday/<slug:holiday_slug>/", views.holiday_recipes, name="holiday_recipes"),
 
     # Search
