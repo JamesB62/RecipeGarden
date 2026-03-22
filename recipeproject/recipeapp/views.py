@@ -37,15 +37,16 @@ def register_view(request):
 
 # Login View
 def login_view(request):
-    if request.method == 'POST':
+    next_url = request.GET.get('next') or request.POST.get('next')
+    if request.method == 'POST':   
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')
+            return redirect(next_url or 'home')
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'accounts/login.html', {'form': form, 'next': next_url})
 
 # Logout View
 def logout_view(request):

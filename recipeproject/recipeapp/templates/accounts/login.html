@@ -15,6 +15,9 @@
             <form method="post" novalidate>
                 {% csrf_token %}
 
+                <!-- Passing Hidden Value for Next URL -->
+                <input type="hidden" name="next" value="{{ next }}">
+
                 <!-- Username Field -->
                 <div class="mb-3">
                     <label for="id_username" class="form-label mb-0">Username</label>
