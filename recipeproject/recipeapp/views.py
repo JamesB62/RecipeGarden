@@ -30,10 +30,14 @@ def register_view(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('register_complete')
     else:
         form = CustomUserCreationForm()
     return render(request, "accounts/register.html", {"form": form})
+
+# Register Complete View
+def register_complete_view(request):
+    return render(request, "accounts/register_complete.html")
 
 # Login View
 def login_view(request):

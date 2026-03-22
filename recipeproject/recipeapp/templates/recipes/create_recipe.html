@@ -30,8 +30,11 @@
                     {% endfor %}
                 </div>
                 {% endfor %}
-                <button type="submit" class="btn btn-outline-success rounded-pill mt-2">Save Recipe</button>
-                <!-- Add Back Button? -->
+                <div class="d-flex justify-content-start gap-2 mt-2">
+                    <button type="submit" class="btn btn-outline-success rounded-pill">Save Recipe</button>
+                    <a class="btn btn-outline-secondary rounded-pill" href="{{ request.META.HTTP_REFERER|default:'/' }}">Cancel</a>
+                </div>
+                <!-- <button type="submit" class="btn btn-outline-success rounded-pill mt-2">Save Recipe</button> -->
             </form>
         </div>
     </div>

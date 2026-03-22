@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<!-- Page Content Block -->
+<div class="w-100">
+
+    <!-- Password Reset Block -->
+    <div class="d-flex flex-column align-items-center mx-4">
+
+        <!-- Password Reset Card -->
+        <div class="card shadow p-4 w-100" style="max-width: 500px;">
+            <h2 class="fancy-subtitle mb-2">Registration Complete</h2>
+            <p class="mb-0">Your Recipe Garden account has been created.</p>
+            <div class="mt-3">
+                <a class="btn btn-outline-success rounded-pill" href="{% url 'login' %}">Login</a>
+            </div>  
+        </div>
+    </div>
+</div>
+
+{% endblock %}
