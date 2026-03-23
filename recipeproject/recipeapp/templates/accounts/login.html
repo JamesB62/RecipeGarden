@@ -16,7 +16,7 @@
                 {% csrf_token %}
 
                 <!-- Passing Hidden Value for Next URL -->
-                <input type="hidden" name="next" value="{{ next }}">
+                <input type="hidden" name="next" value="{{ next|default:'' }}">
 
                 <!-- Username Field -->
                 <div class="mb-3">
