@@ -82,6 +82,7 @@ python manage.py runserver
 
 - Add recipe ratings and reviews
 - Improve search filtering
+- Replace action complete pages with dismissible alert
 
 ## 🔐 Profile Credentials
 
