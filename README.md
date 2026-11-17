@@ -29,11 +29,11 @@ Inside a new VSCode terminal, follow these steps:
 
 1. Clone the repository
 
-git clone https://github.com/JamesB62/L6SD_26T1_W7_Recipe_Project.git
+git clone https://github.com/JamesB62/RecipeGarden.git
 
 2. Navigate to the repository folder
 
-cd L6SD_26T1_W7_Recipe_Project
+cd RecipeGarden
 
 3. Create a virtual environment
 
@@ -84,10 +84,13 @@ python manage.py runserver
 - Improve search filtering
 - Replace action complete pages with dismissible alert
 
-## 🔐 Profile Credentials
+## 🔐 Getting Started
 
-- Username: admin | Password: password123
-- Username: JamesB123 | Password: Charlie62
+Create an admin account with:
+
+python manage.py createsuperuser
+    
+Then register a regular user through the site's sign-up page.
 
 ## 📃 Credits
 
