@@ -1,6 +1,9 @@
 .env
 db.sqlite3
-media/
+recipeproject/media/*
+!recipeproject/media/recipes/
+recipeproject/media/recipes/*
+!recipeproject/media/recipes/default.jpg
 __pycache__/
 *.pyc
 venv/
