@@ -105,9 +105,10 @@ Inside a new VSCode terminal, follow these steps:
 ## 🔐 Getting Started
 
 Create an admin account with:
+   ```
+   python manage.py createsuperuser
+   ```
 
-python manage.py createsuperuser
-    
 Then register a regular user through the site's sign-up page.
 
 ## 📃 Credits
